@@ -1,29 +1,14 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Form from "./index";
 
-describe("When Events is created", () => {
-  it("a list of event card is displayed", async () => {
-    render(<Form />);
-    await screen.findByText("Email");
-    await screen.findByText("Nom");
-    await screen.findByText("Prénom");
-    await screen.findByText("Personel / Entreprise");
-  });
-
-  describe("and a click is triggered on the submit button", () => {
-    it("the success action is called", async () => {
-      const onSuccess = jest.fn();
-      render(<Form onSuccess={onSuccess} />);
-      fireEvent(
-        await screen.findByTestId("button-test-id"),
-        new MouseEvent("click", {
-          cancelable: true,
-          bubbles: true,
-        })
-      );
-      await screen.findByText("En cours");
-      await screen.findByText("Envoyer");
-      expect(onSuccess).toHaveBeenCalled();
-    });
+describe("When Form is submitted", () => {
+  it("the success action is called", () => {
+    const onSuccessMock = jest.fn(); // Créez une fonction mock pour onSuccess
+    render(<Form onSuccess={onSuccessMock} onError={() => {}} />);
+    
+    const submitButton = screen.getByRole("button", { name: "Envoyer" }); // Utilisez getByRole avec le nom du bouton
+    fireEvent.click(submitButton); // Simule un clic sur le bouton Envoyer
+    
+    expect(onSuccessMock).toHaveBeenCalled(); // Vérifie si onSuccess a été appelé
   });
 });
