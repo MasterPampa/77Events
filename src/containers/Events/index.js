@@ -4,7 +4,6 @@ import Select from "../../components/Select";
 import { useData } from "../../contexts/DataContext";
 import Modal from "../Modal";
 import ModalEvent from "../ModalEvent";
-
 import "./style.css";
 
 const PER_PAGE = 9;
@@ -16,7 +15,7 @@ const EventList = () => {
   const filteredEvents = (
     (!type
       ? data?.events
-      : data?.events) || []
+      : data?.events.filter(event => !type || event.type === type)) || []
   ).filter((event, index) => {
     if (
       (currentPage - 1) * PER_PAGE <= index &&
@@ -30,11 +29,8 @@ const EventList = () => {
     setCurrentPage(1);
     setType(evtType);
   };
-
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
   const typeList = new Set(data?.events.map((event) => event.type));
-  console.log(typeList)
-
   return (
     <>
       {error && <div>An error occured</div>}
@@ -45,10 +41,10 @@ const EventList = () => {
           <h3 className="SelectTitle">Catégories</h3>
           <Select
             selection={Array.from(typeList)}
-            onChange={changeType}
+            onChange={(value) => (value ? changeType(value) : changeType(null))}
           />
           <div id="events" className="ListContainer">
-            {filteredEvents.filter(event => !type || event.type === type).map((event) => (
+            {filteredEvents.map((event) => (
               <Modal key={event.id} Content={<ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
                   <EventCard
