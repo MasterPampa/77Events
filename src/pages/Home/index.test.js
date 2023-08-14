@@ -28,7 +28,7 @@ describe("When Form is created", () => {
 });
 
 
-describe("When a page is created", () => {
+describe("When a page is created", () => { ////////////////////////////
   it("a list of events is displayed", async () => {
     const testId = "testIdEvents";
     render(<Home />);

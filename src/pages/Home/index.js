@@ -12,8 +12,14 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-    const { data } = useData()
-    const last = data?.events[data.events.length - 1];
+    const { data } = useData() // Element corrigé
+
+    const last = data?.events.reduce((latestEvent, currentEvent) => { // Element corrigé
+        if (!latestEvent || new Date(currentEvent.date) > new Date(latestEvent.date)) {
+          return currentEvent;
+        }
+        return latestEvent;
+      }, null);
 
     return <>
         <header>
@@ -117,7 +123,7 @@ const Page = () => {
         <footer className="row" data-testid="test-footer">
             <div className="col presta" data-testid="last-event">
                 <h3>Notre derniére prestation</h3>
-                {last && last.cover && last.title ? (
+                {last && last.cover && last.title ? ( // Element corrigé
                     <EventCard
                         imageSrc={last.cover}
                         title={last.title}

@@ -12,7 +12,7 @@ const Form = ({ onSuccess, onError }) => {
     async (evt) => {
       evt.preventDefault();
       setSending(true);
-      onSuccess();
+      onSuccess(); // Element corrigé
       try {
         await mockContactApi();
         setSending(false);
