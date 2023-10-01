@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/77Events/static/css/main.ee2a8b22.css",
-    "main.js": "/77Events/static/js/main.1b7c203a.js",
-    "static/js/787.227b7f2b.chunk.js": "/77Events/static/js/787.227b7f2b.chunk.js",
-    "index.html": "/77Events/index.html",
-    "main.ee2a8b22.css.map": "/77Events/static/css/main.ee2a8b22.css.map",
-    "main.1b7c203a.js.map": "/77Events/static/js/main.1b7c203a.js.map",
-    "787.227b7f2b.chunk.js.map": "/77Events/static/js/787.227b7f2b.chunk.js.map"
+    "main.css": "/Projet10_OpenClassrooms/static/css/main.ee2a8b22.css",
+    "main.js": "/Projet10_OpenClassrooms/static/js/main.0e230398.js",
+    "static/js/787.227b7f2b.chunk.js": "/Projet10_OpenClassrooms/static/js/787.227b7f2b.chunk.js",
+    "index.html": "/Projet10_OpenClassrooms/index.html",
+    "main.ee2a8b22.css.map": "/Projet10_OpenClassrooms/static/css/main.ee2a8b22.css.map",
+    "main.0e230398.js.map": "/Projet10_OpenClassrooms/static/js/main.0e230398.js.map",
+    "787.227b7f2b.chunk.js.map": "/Projet10_OpenClassrooms/static/js/787.227b7f2b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ee2a8b22.css",
-    "static/js/main.1b7c203a.js"
+    "static/js/main.0e230398.js"
   ]
 }
