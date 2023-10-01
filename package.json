@@ -1,7 +1,7 @@
 {
   "name": "77-events",
   "version": "0.1.0",
-  "homepage": "https://masterpampa.github.io/77Events/",
+  "homepage": "https://masterpampa.github.io/Projet10_OpenClassrooms/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
